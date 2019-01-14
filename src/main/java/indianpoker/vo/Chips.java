@@ -3,10 +3,10 @@ package indianpoker.vo;
 import java.util.Objects;
 
 public class Chips implements Comparable<Chips> {
-    private int numberOfChips;
     private static final String A_CHIP = "💵";
     private static final String TEN_CHIP = "💰";
 
+    private int numberOfChips;
 
     public static Chips ofZero() {
         return new Chips(0);

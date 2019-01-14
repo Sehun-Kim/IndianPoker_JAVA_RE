@@ -18,7 +18,7 @@ public class TurnTest extends Fixture {
 
     @Before
     public void setUp() throws Exception {
-        turn = Turn.of().addPlayers(player1, player2).addDealer(dealer);
+        turn = new Turn().addPlayers(player1, player2).addDealer(dealer);
     }
 
     @Test
@@ -34,39 +34,39 @@ public class TurnTest extends Fixture {
 
     @Test
     public void firstPlayerIsFirst() {
-        Player testPlayer = new HumanPlayer("sleepyDom", new Deck(), aChip, true);
-        Turn newTurn = Turn.of().addPlayers(testPlayer, emptyPlayer).addDealer(dealer);
+        Player testPlayer = new HumanPlayer("sleepyDom", Deck.ofAuto(), aChip, true);
+        Turn newTurn = new Turn().addPlayers(testPlayer, emptyPlayer).addDealer(dealer);
         assertTrue(newTurn.firstPlayerIsFirst());
     }
 
     @Test(expected = EmptyChipException.class)
     public void checkEmptyChipException() {
-        Turn newTurn = Turn.of().addPlayers(player1, emptyPlayer).addDealer(dealer);
+        Turn newTurn = new Turn().addPlayers(player1, emptyPlayer).addDealer(dealer);
         newTurn.checkEmptyChipException();
     }
 
     @Test
     public void generateBettingInfo() {
-        Player choiPlayer = new HumanPlayer("choi", new Deck(), Chips.ofNumberOfChips(30), true);
-        Player singPlayer = new HumanPlayer("sing", new Deck(), Chips.ofNumberOfChips(30), true);
-        Turn newTurn = Turn.of().addPlayers(choiPlayer, singPlayer).addDealer(dealer);
+        Player choiPlayer = new HumanPlayer("choi", Deck.ofAuto(), Chips.ofNumberOfChips(30), true);
+        Player singPlayer = new HumanPlayer("sing", Deck.ofAuto(), Chips.ofNumberOfChips(30), true);
+        Turn newTurn = new Turn().addPlayers(choiPlayer, singPlayer).addDealer(dealer);
         newTurn.init();
         assertEquals(Chips.ofNumberOfChips(29), newTurn.generateBettingInfo().getOwnPlayerInfoDto().getRemainChips());
     }
 
     @Test
     public void lastPlayerChipIsEmpty() {
-        Player aPlayer = new HumanPlayer("aplayer", new Deck(), aChip, false);
-        Turn newTurn = Turn.of().addPlayers(player1, aPlayer).addDealer(dealer);
+        Player aPlayer = new HumanPlayer("aplayer", Deck.ofAuto(), aChip, false);
+        Turn newTurn = new Turn().addPlayers(player1, aPlayer).addDealer(dealer);
         newTurn.init();
         assertTrue(newTurn.lastPlayerChipIsEmpty());
     }
 
     @Test
     public void generateBettingBoundary() {
-        Player choiPlayer = new HumanPlayer("choi", new Deck(), Chips.ofNumberOfChips(30), true);
-        Player testPlayer = new HumanPlayer("testPlayer", new Deck(), Chips.ofNumberOfChips(10), false);
-        Turn newTurn = Turn.of().addPlayers(choiPlayer, testPlayer).addDealer(dealer);
+        Player choiPlayer = new HumanPlayer("choi", Deck.ofAuto(), Chips.ofNumberOfChips(30), true);
+        Player testPlayer = new HumanPlayer("testPlayer", Deck.ofAuto(), Chips.ofNumberOfChips(10), false);
+        Turn newTurn = new Turn().addPlayers(choiPlayer, testPlayer).addDealer(dealer);
         newTurn.init();
         BettingChipBoundaryDto bettingChipBoundaryDto = newTurn.generateBettingBoundary();
         assertEquals(Chips.ofZero(), bettingChipBoundaryDto.getDiffChips());

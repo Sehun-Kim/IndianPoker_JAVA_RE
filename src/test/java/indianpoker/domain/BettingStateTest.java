@@ -14,14 +14,14 @@ import support.domain.Deck;
 
 import static org.junit.Assert.assertTrue;
 
-public class BettingControllerStateTest extends Fixture {
+public class BettingStateTest extends Fixture {
     Player player1;
     Player player2;
 
     @Before
     public void setUp() throws Exception {
-        player1 = new HumanPlayer("dom", new Deck(), Chips.ofNumberOfChips(30), true);
-        player2 = new HumanPlayer("dom", new Deck(), Chips.ofNumberOfChips(30), false);
+        player1 = new HumanPlayer("dom", Deck.ofAuto(), Chips.ofNumberOfChips(30), true);
+        player2 = new HumanPlayer("dom", Deck.ofAuto(), Chips.ofNumberOfChips(30), false);
         player1.initTurn();
         player2.initTurn();
     }

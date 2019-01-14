@@ -11,9 +11,9 @@ import indianpoker.vo.Chips;
 import support.domain.Deck;
 
 public class Fixture {
-    public static Player player1 = new HumanPlayer("dom", new Deck(), Chips.ofNumberOfChips(30), true);
-    public static Player player2 = new HumanPlayer("choising", new Deck(), Chips.ofNumberOfChips(30), false);
-    public static Player emptyPlayer = new HumanPlayer("empty", new Deck(), Chips.ofZero(), false);
+    public static Player player1 = new HumanPlayer("dom", Deck.ofAuto(), Chips.ofNumberOfChips(30), true);
+    public static Player player2 = new HumanPlayer("choising", Deck.ofAuto(), Chips.ofNumberOfChips(30), false);
+    public static Player emptyPlayer = new HumanPlayer("empty", Deck.ofAuto(), Chips.ofZero(), false);
 
     public static Chips aChip = Chips.ofNumberOfChips(1);
 

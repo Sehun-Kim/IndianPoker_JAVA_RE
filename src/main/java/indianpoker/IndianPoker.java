@@ -15,8 +15,8 @@ public class IndianPoker {
     public static final int TURN_INIT_COUNT = 1;
 
     public static void main(String[] args) {
-        Player player1 = new HumanPlayer("dom", new Deck(), Chips.ofNumberOfChips(20), true);
-        Player player2 = new HumanPlayer("choising", new Deck(), Chips.ofNumberOfChips(20), false);
+        Player player1 = new HumanPlayer("dom", Deck.ofAuto(), Chips.ofNumberOfChips(20), true);
+        Player player2 = new HumanPlayer("choising", Deck.ofAuto(), Chips.ofNumberOfChips(20), false);
         Dealer dealer = new Dealer();
         System.out.println("Start indianpoker.IndianPoker Game");
 

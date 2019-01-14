@@ -13,7 +13,7 @@ import indianpoker.vo.BettingCase;
 // 승패를 판단한 다음에 스테이트도 판단해야할 듯
 public class TurnController {
     public static void build(Player player1, Player player2, Dealer dealer) {
-        start(Turn.of()
+        start(new Turn()
                 .addPlayers(player1, player2)
                 .addDealer(dealer)
                 .init());

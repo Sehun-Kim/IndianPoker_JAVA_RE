@@ -6,31 +6,26 @@ import org.junit.Test;
 import support.domain.Deck;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DeckTest {
-    Deck deck;
 
-    @Before
-    public void setUp() throws Exception {
-        deck = new Deck();
+    @Test
+    public void drawACard_ofManual() {
+        List<Card> cards = new ArrayList<>(Arrays.asList(new Card(1), new Card(2)));
+        Deck deck = Deck.ofManual(cards);
+
+        assertEquals(new Card(1), deck.drawACard());
     }
 
     @Test
-    public void drawACard() {
-        assertTrue(deck.drawACard() instanceof Card);
-        System.out.println(deck.drawACard());
-    }
-
-    @Test
-    public void shuffle() {
-        List<Card> cards = new ArrayList<>();
-        for(int i = 1; i <= 10; i++){
-            cards.add(new Card(i));
-        }
-        System.out.println(cards);
-        System.out.println(deck.shuffle(cards));
+    public void drawACard_ofAuto() {
+        Deck deck = Deck.ofAuto();
+        assertTrue(deck.drawACard().compareTo(new Card(10)) <= 0);
+        assertTrue(deck.drawACard().compareTo(new Card(1)) >= 0);
     }
 }

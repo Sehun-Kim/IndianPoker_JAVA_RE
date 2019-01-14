@@ -88,7 +88,7 @@ public class Dealer {
     }
 
     public void checkGameOver(Player player1, Player player2) {
-        if (player1.showChips().isEmpty() || player2.showChips().isEmpty())
+        if (player1.isGameOver() || player2.isGameOver())
             throw new GameOverException("GAME OVER");
     }
 

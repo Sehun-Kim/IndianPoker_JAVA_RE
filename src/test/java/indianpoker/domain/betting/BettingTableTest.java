@@ -8,7 +8,7 @@ import org.junit.Test;
 import support.Fixture;
 import support.util.ChipExtractorUtil;
 
-public class BettingControllerTableTest extends Fixture {
+public class BettingTableTest extends Fixture {
     BettingTable bettingTable;
 
     @Before

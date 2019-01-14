@@ -113,7 +113,7 @@ public class DealerTest extends Fixture {
 
     @Test
     public void judgeGameWinner_draw() {
-        Player clonePlayer = new HumanPlayer("clone", new Deck(), Chips.ofZero(), false);
+        Player clonePlayer = new HumanPlayer("clone", Deck.ofAuto(), Chips.ofZero(), false);
         GameResultDto gameResultDto = dealer.judgeGameWinner(emptyPlayer, clonePlayer);
         assertTrue(gameResultDto.isDraw());
     }

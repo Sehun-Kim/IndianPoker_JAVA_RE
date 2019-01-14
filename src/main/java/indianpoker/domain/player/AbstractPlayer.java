@@ -76,6 +76,11 @@ public abstract class AbstractPlayer implements Player {
     }
 
     @Override
+    public boolean isGameOver() {
+        return this.chips.isEmpty();
+    }
+
+    @Override
     public String toString() {
         return "AbstractPlayer{" +
                 "firstBetter=" + firstBetter +

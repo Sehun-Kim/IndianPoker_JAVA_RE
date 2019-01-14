@@ -16,11 +16,7 @@ public class Turn {
     private Dealer dealer;
     private BettingTable bettingTable;
 
-    public static Turn of() {
-        return new Turn();
-    }
-
-    private Turn() {
+    public Turn() {
     }
 
     public Turn addPlayers(Player firstPlayer, Player lastPlayer) {

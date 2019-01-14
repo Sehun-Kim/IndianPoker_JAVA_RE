@@ -17,7 +17,7 @@ public class HumanPlayerTest {
 
     @Before
     public void setUp() throws Exception {
-        Deck deck = new Deck();
+        Deck deck = Deck.ofAuto();
         player = new HumanPlayer("dom", deck, Chips.ofNumberOfChips(30), true);
     }
 
@@ -41,7 +41,8 @@ public class HumanPlayerTest {
     }
 
     @Test
-    public void isIdiot() {
-
+    public void isGameOver() {
+        Player gameOverPlayer = new HumanPlayer("over", Deck.ofAuto(), Chips.ofZero(), true);
+        assertTrue(gameOverPlayer.isGameOver());
     }
 }
